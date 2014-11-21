@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LoginView.h
 //  Oson
 //
 //  Created by Yujun Cho on 11/21/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LoginView : UIView
 
 @end
-

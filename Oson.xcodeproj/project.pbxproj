@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		D1FBD5E31A1F5BF20017D748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5E21A1F5BF20017D748 /* main.m */; };
 		D1FBD5E61A1F5BF20017D748 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5E51A1F5BF20017D748 /* AppDelegate.m */; };
-		D1FBD5E91A1F5BF20017D748 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5E81A1F5BF20017D748 /* ViewController.m */; };
 		D1FBD5EC1A1F5BF20017D748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD5EA1A1F5BF20017D748 /* Main.storyboard */; };
 		D1FBD5EE1A1F5BF20017D748 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD5ED1A1F5BF20017D748 /* Images.xcassets */; };
 		D1FBD5F11A1F5BF20017D748 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD5EF1A1F5BF20017D748 /* LaunchScreen.xib */; };
 		D1FBD5FD1A1F5BF20017D748 /* OsonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5FC1A1F5BF20017D748 /* OsonTests.m */; };
+		D1FBD60C1A1F6A480017D748 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD60B1A1F6A480017D748 /* LoginViewController.m */; };
+		D1FBD60F1A1F6AC70017D748 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD60E1A1F6AC70017D748 /* AddItemViewController.m */; };
+		D1FBD6121A1F6B280017D748 /* ItemPlacedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6111A1F6B280017D748 /* ItemPlacedViewController.m */; };
+		D1FBD6171A1F6BBB0017D748 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6161A1F6BBB0017D748 /* LoginView.m */; };
+		D1FBD61A1A1F6BC90017D748 /* AddItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6191A1F6BC90017D748 /* AddItemView.m */; };
+		D1FBD61D1A1F6BD80017D748 /* ItemPlacedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD61C1A1F6BD80017D748 /* ItemPlacedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +37,24 @@
 		D1FBD5E21A1F5BF20017D748 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1FBD5E41A1F5BF20017D748 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D1FBD5E51A1F5BF20017D748 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D1FBD5E71A1F5BF20017D748 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D1FBD5E81A1F5BF20017D748 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D1FBD5EB1A1F5BF20017D748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1FBD5ED1A1F5BF20017D748 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D1FBD5F01A1F5BF20017D748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D1FBD5F61A1F5BF20017D748 /* OsonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OsonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FBD5FB1A1F5BF20017D748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1FBD5FC1A1F5BF20017D748 /* OsonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OsonTests.m; sourceTree = "<group>"; };
+		D1FBD60A1A1F6A480017D748 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
+		D1FBD60B1A1F6A480017D748 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
+		D1FBD60D1A1F6AC70017D748 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = Controllers/AddItemViewController.h; sourceTree = "<group>"; };
+		D1FBD60E1A1F6AC70017D748 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = Controllers/AddItemViewController.m; sourceTree = "<group>"; };
+		D1FBD6101A1F6B280017D748 /* ItemPlacedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemPlacedViewController.h; path = Controllers/ItemPlacedViewController.h; sourceTree = "<group>"; };
+		D1FBD6111A1F6B280017D748 /* ItemPlacedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemPlacedViewController.m; path = Controllers/ItemPlacedViewController.m; sourceTree = "<group>"; };
+		D1FBD6151A1F6BBB0017D748 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginView.h; path = Views/LoginView.h; sourceTree = "<group>"; };
+		D1FBD6161A1F6BBB0017D748 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginView.m; path = Views/LoginView.m; sourceTree = "<group>"; };
+		D1FBD6181A1F6BC90017D748 /* AddItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemView.h; path = Views/AddItemView.h; sourceTree = "<group>"; };
+		D1FBD6191A1F6BC90017D748 /* AddItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemView.m; path = Views/AddItemView.m; sourceTree = "<group>"; };
+		D1FBD61B1A1F6BD80017D748 /* ItemPlacedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemPlacedView.h; path = Views/ItemPlacedView.h; sourceTree = "<group>"; };
+		D1FBD61C1A1F6BD80017D748 /* ItemPlacedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemPlacedView.m; path = Views/ItemPlacedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +98,9 @@
 			children = (
 				D1FBD5E41A1F5BF20017D748 /* AppDelegate.h */,
 				D1FBD5E51A1F5BF20017D748 /* AppDelegate.m */,
-				D1FBD5E71A1F5BF20017D748 /* ViewController.h */,
-				D1FBD5E81A1F5BF20017D748 /* ViewController.m */,
+				D1FBD6071A1F5DD30017D748 /* Controllers */,
+				D1FBD6081A1F5DDA0017D748 /* Views */,
+				D1FBD6091A1F5DDE0017D748 /* Models */,
 				D1FBD5EA1A1F5BF20017D748 /* Main.storyboard */,
 				D1FBD5ED1A1F5BF20017D748 /* Images.xcassets */,
 				D1FBD5EF1A1F5BF20017D748 /* LaunchScreen.xib */,
@@ -117,6 +133,39 @@
 				D1FBD5FB1A1F5BF20017D748 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1FBD6071A1F5DD30017D748 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBD60A1A1F6A480017D748 /* LoginViewController.h */,
+				D1FBD60B1A1F6A480017D748 /* LoginViewController.m */,
+				D1FBD60D1A1F6AC70017D748 /* AddItemViewController.h */,
+				D1FBD60E1A1F6AC70017D748 /* AddItemViewController.m */,
+				D1FBD6101A1F6B280017D748 /* ItemPlacedViewController.h */,
+				D1FBD6111A1F6B280017D748 /* ItemPlacedViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D1FBD6081A1F5DDA0017D748 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBD6151A1F6BBB0017D748 /* LoginView.h */,
+				D1FBD6161A1F6BBB0017D748 /* LoginView.m */,
+				D1FBD6181A1F6BC90017D748 /* AddItemView.h */,
+				D1FBD6191A1F6BC90017D748 /* AddItemView.m */,
+				D1FBD61B1A1F6BD80017D748 /* ItemPlacedView.h */,
+				D1FBD61C1A1F6BD80017D748 /* ItemPlacedView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D1FBD6091A1F5DDE0017D748 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FBD5E91A1F5BF20017D748 /* ViewController.m in Sources */,
+				D1FBD6171A1F6BBB0017D748 /* LoginView.m in Sources */,
+				D1FBD60C1A1F6A480017D748 /* LoginViewController.m in Sources */,
+				D1FBD61A1A1F6BC90017D748 /* AddItemView.m in Sources */,
+				D1FBD6121A1F6B280017D748 /* ItemPlacedViewController.m in Sources */,
+				D1FBD60F1A1F6AC70017D748 /* AddItemViewController.m in Sources */,
 				D1FBD5E61A1F5BF20017D748 /* AppDelegate.m in Sources */,
+				D1FBD61D1A1F6BD80017D748 /* ItemPlacedView.m in Sources */,
 				D1FBD5E31A1F5BF20017D748 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
