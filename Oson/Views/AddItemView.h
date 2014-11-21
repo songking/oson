@@ -10,4 +10,12 @@
 
 @interface AddItemView : UIView
 
+@property (nonatomic, strong) UITextField *itemName;
+@property (nonatomic, strong) UITextField *location;
+@property (nonatomic, strong) UITextField *itemDescription;
+@property (nonatomic, strong) UILabel *verify;
+@property (nonatomic, strong) UIButton *verifyButton;
+@property (nonatomic, strong) UIButton *confirm;
+@property (nonatomic, strong) UIButton *cancel;
+
 @end
