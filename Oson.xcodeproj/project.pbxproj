@@ -19,6 +19,7 @@
 		D1FBD6171A1F6BBB0017D748 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6161A1F6BBB0017D748 /* LoginView.m */; };
 		D1FBD61A1A1F6BC90017D748 /* AddItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6191A1F6BC90017D748 /* AddItemView.m */; };
 		D1FBD61D1A1F6BD80017D748 /* ItemPlacedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD61C1A1F6BD80017D748 /* ItemPlacedView.m */; };
+		D1FBD6201A1F71480017D748 /* ItemEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD61F1A1F71480017D748 /* ItemEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		D1FBD6191A1F6BC90017D748 /* AddItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemView.m; path = Views/AddItemView.m; sourceTree = "<group>"; };
 		D1FBD61B1A1F6BD80017D748 /* ItemPlacedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemPlacedView.h; path = Views/ItemPlacedView.h; sourceTree = "<group>"; };
 		D1FBD61C1A1F6BD80017D748 /* ItemPlacedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemPlacedView.m; path = Views/ItemPlacedView.m; sourceTree = "<group>"; };
+		D1FBD61E1A1F71480017D748 /* ItemEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemEntry.h; path = Models/ItemEntry.h; sourceTree = "<group>"; };
+		D1FBD61F1A1F71480017D748 /* ItemEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemEntry.m; path = Models/ItemEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 		D1FBD6091A1F5DDE0017D748 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBD61E1A1F71480017D748 /* ItemEntry.h */,
+				D1FBD61F1A1F71480017D748 /* ItemEntry.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FBD6201A1F71480017D748 /* ItemEntry.m in Sources */,
 				D1FBD6171A1F6BBB0017D748 /* LoginView.m in Sources */,
 				D1FBD60C1A1F6A480017D748 /* LoginViewController.m in Sources */,
 				D1FBD61A1A1F6BC90017D748 /* AddItemView.m in Sources */,
