@@ -57,6 +57,9 @@
     CGFloat buttonSize = 50;
     CGFloat paddingFromTop = 20;
     CGFloat heightOfItemName = 34;
+    CGFloat leftMargin = 20;
+    CGFloat rightMargin = 20;
+    CGFloat bottomMargin = 20;
     
     [self setupItemNamewithPosition:CGPointMake(0, paddingFromTop)
                            withSize:CGSizeMake(windowWidth, heightOfItemName)
@@ -66,38 +69,39 @@
     paddingFromTop += heightOfItemName + textfieldUpperPadding;
     CGFloat heightOfLocation = 20;
     
-    [self setupLocationwithPosition:CGPointMake(0, paddingFromTop)
-                           withSize:CGSizeMake(windowWidth, heightOfLocation)
+    [self setupLocationwithPosition:CGPointMake(leftMargin, paddingFromTop)
+                           withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
+                                               heightOfLocation)
                           withColor:[UIColor clearColor]];
     
     paddingFromTop += heightOfLocation + textfieldUpperPadding;
-    CGFloat heightOfItemDescription = 20;
-    
-    [self setupItemDescriptionwithPosition:CGPointMake(0, paddingFromTop)
-                                  withSize:CGSizeMake(windowWidth,
-                                                      heightOfItemDescription)
-                                 withColor:[UIColor clearColor]];
-    
-    paddingFromTop += heightOfItemDescription + textfieldUpperPadding;
     CGFloat heightOfVerify = 20;
     
-    [self setupVerifyWithPosition:CGPointMake(0, paddingFromTop)
+    [self setupVerifyWithPosition:CGPointMake(leftMargin, paddingFromTop)
                          withSize:CGSizeMake(windowWidth / 2,
                                              heightOfVerify)
                         withColor:[UIColor clearColor]];
     
-    [self setupVerifyButtonWithPosition:CGPointMake(windowWidth - (heightOfVerify * 2),
+    [self setupVerifyButtonWithPosition:CGPointMake(windowWidth - (buttonSize / 2) - rightMargin,
                                                     paddingFromTop)
-                         withSize:CGSizeMake(buttonSize / 2, buttonSize / 2)
-                        withColor:[UIColor greenColor]];
+                               withSize:CGSizeMake(buttonSize / 2, buttonSize / 2)
+                              withColor:[UIColor greenColor]];
     
-    [self setupConfirmWithPosition:CGPointMake(windowWidth - (buttonSize * 3 / 2),
-                                               windowHeight - (buttonSize * 3 / 2))
+    paddingFromTop += heightOfVerify + textfieldUpperPadding;
+    CGFloat heightOfItemDescription = 20;
+    
+    [self setupItemDescriptionwithPosition:CGPointMake(leftMargin, paddingFromTop)
+                                  withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
+                                                      heightOfItemDescription)
+                                 withColor:[UIColor clearColor]];
+    
+    [self setupConfirmWithPosition:CGPointMake(windowWidth - buttonSize - rightMargin,
+                                               windowHeight - buttonSize - bottomMargin)
                           withSize:CGSizeMake(buttonSize, buttonSize)
                          withColor:[UIColor greenColor]];
 
-    [self setupCancelWithPosition:CGPointMake(buttonSize / 2,
-                                              windowHeight - (buttonSize * 3/ 2))
+    [self setupCancelWithPosition:CGPointMake(leftMargin,
+                                              windowHeight - buttonSize - bottomMargin)
                          withSize:CGSizeMake(buttonSize, buttonSize)
                         withColor:[UIColor redColor]];
 }
@@ -129,7 +133,7 @@
           withPosition:position
               withSize:size
              withColor:color];
-    [self.location setPlaceholder:@"Location"];
+    [self.location setPlaceholder:@"Set Location"];
 }
 
 - (void)setupItemDescriptionwithPosition:(CGPoint)position
