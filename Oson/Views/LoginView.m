@@ -10,13 +10,4 @@
 
 @implementation LoginView
 
-- (instancetype)initWithFrame:(CGRect)frameRect
-{
-    self = [super initWithFrame:frameRect];
-    if (self) {
-        
-    }
-    return self;
-}
-
 @end

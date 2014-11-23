@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D1FBD5E31A1F5BF20017D748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5E21A1F5BF20017D748 /* main.m */; };
 		D1FBD5E61A1F5BF20017D748 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5E51A1F5BF20017D748 /* AppDelegate.m */; };
-		D1FBD5EC1A1F5BF20017D748 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD5EA1A1F5BF20017D748 /* Main.storyboard */; };
 		D1FBD5EE1A1F5BF20017D748 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD5ED1A1F5BF20017D748 /* Images.xcassets */; };
 		D1FBD5F11A1F5BF20017D748 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD5EF1A1F5BF20017D748 /* LaunchScreen.xib */; };
 		D1FBD5FD1A1F5BF20017D748 /* OsonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5FC1A1F5BF20017D748 /* OsonTests.m */; };
@@ -38,7 +37,6 @@
 		D1FBD5E21A1F5BF20017D748 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1FBD5E41A1F5BF20017D748 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D1FBD5E51A1F5BF20017D748 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D1FBD5EB1A1F5BF20017D748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1FBD5ED1A1F5BF20017D748 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D1FBD5F01A1F5BF20017D748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D1FBD5F61A1F5BF20017D748 /* OsonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OsonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +102,6 @@
 				D1FBD6071A1F5DD30017D748 /* Controllers */,
 				D1FBD6081A1F5DDA0017D748 /* Views */,
 				D1FBD6091A1F5DDE0017D748 /* Models */,
-				D1FBD5EA1A1F5BF20017D748 /* Main.storyboard */,
 				D1FBD5ED1A1F5BF20017D748 /* Images.xcassets */,
 				D1FBD5EF1A1F5BF20017D748 /* LaunchScreen.xib */,
 				D1FBD5E01A1F5BF20017D748 /* Supporting Files */,
@@ -253,7 +250,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FBD5EC1A1F5BF20017D748 /* Main.storyboard in Resources */,
 				D1FBD5F11A1F5BF20017D748 /* LaunchScreen.xib in Resources */,
 				D1FBD5EE1A1F5BF20017D748 /* Images.xcassets in Resources */,
 			);
@@ -304,14 +300,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D1FBD5EA1A1F5BF20017D748 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D1FBD5EB1A1F5BF20017D748 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D1FBD5EF1A1F5BF20017D748 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
