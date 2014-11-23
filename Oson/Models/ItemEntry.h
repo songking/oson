@@ -10,4 +10,14 @@
 
 @interface ItemEntry : NSObject
 
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *location;
+@property (nonatomic, copy) NSString *itemDescription;
+@property BOOL verify;
+
+- (instancetype)initWithName:(NSString *)name
+                withLocation:(NSString *)location
+             withDescription:(NSString *)description
+                  withVerify:(BOOL)verify;
+
 @end

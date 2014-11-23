@@ -7,11 +7,8 @@
 //
 
 #import "ItemPlacedViewController.h"
-#import "ItemPlacedView.h"
 
 @interface ItemPlacedViewController ()
-
-@property (nonatomic, strong) ItemPlacedView *currentView;
 
 @end
 

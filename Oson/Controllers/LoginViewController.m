@@ -7,13 +7,20 @@
 //
 
 #import "LoginViewController.h"
-#import "LoginView.h"
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -8,6 +8,7 @@
 
 #import "AddItemViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ItemEntry.h"
 
 @interface AddItemViewController ()
 
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) UIButton *verifyButton;
 @property (nonatomic, strong) UIButton *confirm;
 @property (nonatomic, strong) UIButton *cancel;
+@property BOOL verifyToggle;
 
 @end
 
@@ -38,6 +40,7 @@
         _verifyButton = [[UIButton alloc] init];
         _confirm = [[UIButton alloc] init];
         _cancel = [[UIButton alloc] init];
+        _verifyToggle = YES;
     }
     return self;
 }
@@ -186,6 +189,9 @@
           withPosition:position
               withSize:size
              withColor:color];
+    [self.verifyButton addTarget:self
+                          action:@selector(toggleVerify:)
+                forControlEvents:UIControlEventTouchDown];
 }
 
 
@@ -205,6 +211,37 @@
           withPosition:position
               withSize:size
              withColor:color];
+    [self.cancel addTarget:self
+                    action:@selector(cancelOrder:)
+          forControlEvents:UIControlEventTouchDown];
+}
+
+#pragma mark - Button Handling
+
+- (IBAction)toggleVerify:(id)sender {
+    if (self.verifyToggle) {
+        self.verifyToggle = NO;
+        [self.verifyButton setBackgroundColor:[UIColor redColor]];
+    } else {
+        self.verifyToggle = YES;
+        [self.verifyButton setBackgroundColor:[UIColor greenColor]];
+    }
+}
+
+- (IBAction)confirmOrder:(id)sender {
+    ItemEntry *itemToOrder = [[ItemEntry alloc] initWithName:self.itemName.text
+                                               withLocation:self.location.text
+                                            withDescription:self.itemDescription.text
+                                                 withVerify:self.verifyToggle];
+    // Present ItemPlacedViewController
+}
+
+- (IBAction)cancelOrder:(id)sender {
+    [self.itemName setText:@""];
+    [self.itemDescription setText:@""];
+    [self.location setText:@""];
+    self.verifyToggle = YES;
+    [self.verifyButton setBackgroundColor:[UIColor greenColor]];
 }
 
 @end
