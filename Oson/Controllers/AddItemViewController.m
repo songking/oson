@@ -7,12 +7,14 @@
 //
 
 #import "AddItemViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AddItemViewController ()
 
 @property (nonatomic, strong) UITextField *itemName;
 @property (nonatomic, strong) UITextField *location;
-@property (nonatomic, strong) UITextField *itemDescription;
+@property (nonatomic, strong) UITextView *itemDescription;
+@property (nonatomic, strong) UILabel *itemDescriptionTitle;
 @property (nonatomic, strong) UILabel *verify;
 @property (nonatomic, strong) UIButton *verifyButton;
 @property (nonatomic, strong) UIButton *confirm;
@@ -30,7 +32,8 @@
         // Customization
         _itemName = [[UITextField alloc] init];
         _location = [[UITextField alloc] init];
-        _itemDescription = [[UITextField alloc] init];
+        _itemDescription = [[UITextView alloc] init];
+        _itemDescriptionTitle = [[UILabel alloc] init];
         _verify = [[UILabel alloc] init];
         _verifyButton = [[UIButton alloc] init];
         _confirm = [[UIButton alloc] init];
@@ -63,7 +66,7 @@
     
     [self setupItemNamewithPosition:CGPointMake(0, paddingFromTop)
                            withSize:CGSizeMake(windowWidth, heightOfItemName)
-                          withColor:[UIColor lightGrayColor]];
+                          withColor:[UIColor clearColor]];
 
     CGFloat textfieldUpperPadding = 10;
     paddingFromTop += heightOfItemName + textfieldUpperPadding;
@@ -76,24 +79,33 @@
     
     paddingFromTop += heightOfLocation + textfieldUpperPadding;
     CGFloat heightOfVerify = 20;
+    CGFloat verifyButtonSize = heightOfVerify;
     
     [self setupVerifyWithPosition:CGPointMake(leftMargin, paddingFromTop)
                          withSize:CGSizeMake(windowWidth / 2,
                                              heightOfVerify)
                         withColor:[UIColor clearColor]];
     
-    [self setupVerifyButtonWithPosition:CGPointMake(windowWidth - (buttonSize / 2) - rightMargin,
+    [self setupVerifyButtonWithPosition:CGPointMake(windowWidth - verifyButtonSize - rightMargin,
                                                     paddingFromTop)
-                               withSize:CGSizeMake(buttonSize / 2, buttonSize / 2)
+                               withSize:CGSizeMake(verifyButtonSize, verifyButtonSize)
                               withColor:[UIColor greenColor]];
     
     paddingFromTop += heightOfVerify + textfieldUpperPadding;
-    CGFloat heightOfItemDescription = 20;
+    CGFloat heightOfItemDescriptionTitle = 20;
+    
+    [self setupItemDescriptionTitleWithPosition:CGPointMake(leftMargin, paddingFromTop)
+                                       withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
+                                                           heightOfItemDescriptionTitle)
+                                      withColor:[UIColor clearColor]];
+    
+    paddingFromTop += heightOfItemDescriptionTitle;
+    CGFloat heightOfItemDescription = windowHeight / 3;
     
     [self setupItemDescriptionwithPosition:CGPointMake(leftMargin, paddingFromTop)
                                   withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
                                                       heightOfItemDescription)
-                                 withColor:[UIColor clearColor]];
+                                 withColor:[UIColor lightGrayColor]];
     
     [self setupConfirmWithPosition:CGPointMake(windowWidth - buttonSize - rightMargin,
                                                windowHeight - buttonSize - bottomMargin)
@@ -136,6 +148,16 @@
     [self.location setPlaceholder:@"Set Location"];
 }
 
+- (void)setupItemDescriptionTitleWithPosition:(CGPoint)position
+                                     withSize:(CGSize)size
+                                    withColor:(UIColor *)color {
+    [self setupSubview:self.itemDescriptionTitle
+          withPosition:position
+              withSize:size
+             withColor:color];
+    [self.itemDescriptionTitle setText:@"Additional Details"];
+}
+
 - (void)setupItemDescriptionwithPosition:(CGPoint)position
                                 withSize:(CGSize)size
                                withColor:(UIColor *)color {
@@ -143,7 +165,8 @@
           withPosition:position
               withSize:size
              withColor:color];
-    [self.itemDescription setPlaceholder:@"Additional details"];
+    self.itemDescription.clipsToBounds = YES;
+    self.itemDescription.layer.cornerRadius = 10.0f;
 }
 
 - (void)setupVerifyWithPosition:(CGPoint)position
