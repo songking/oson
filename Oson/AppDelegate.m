@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AddItemViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     AddItemViewController *aivc = [[AddItemViewController alloc] init];
-    self.window.rootViewController = aivc;
+    LoginViewController *lvc = [[LoginViewController alloc] init];
+    
+    self.window.rootViewController = lvc;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
