@@ -1,16 +1,17 @@
 //
-//  AddItemViewController.m
+//  ItemViewController.m
 //  Oson
 //
-//  Created by Yujun Cho on 11/21/14.
+//  Created by Yujun Cho on 11/25/14.
 //  Copyright (c) 2014 nick. All rights reserved.
 //
 
-#import "AddItemViewController.h"
+#import "ItemViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ItemEntry.h"
+#import "ItemPlacedViewController.h"
 
-@interface AddItemViewController ()
+@interface ItemViewController ()
 
 @property (nonatomic, strong) UITextField *itemName;
 @property (nonatomic, strong) UITextField *location;
@@ -24,7 +25,7 @@
 
 @end
 
-@implementation AddItemViewController
+@implementation ItemViewController
 
 #pragma mark - Initialize class
 
@@ -70,7 +71,7 @@
     [self setupItemNamewithPosition:CGPointMake(0, paddingFromTop)
                            withSize:CGSizeMake(windowWidth, heightOfItemName)
                           withColor:[UIColor clearColor]];
-
+    
     CGFloat textfieldUpperPadding = 10;
     paddingFromTop += heightOfItemName + textfieldUpperPadding;
     CGFloat heightOfLocation = 20;
@@ -114,7 +115,7 @@
                                                windowHeight - buttonSize - bottomMargin)
                           withSize:CGSizeMake(buttonSize, buttonSize)
                          withColor:[UIColor greenColor]];
-
+    
     [self setupCancelWithPosition:CGPointMake(leftMargin,
                                               windowHeight - buttonSize - bottomMargin)
                          withSize:CGSizeMake(buttonSize, buttonSize)
@@ -183,8 +184,8 @@
 }
 
 - (void)setupVerifyButtonWithPosition:(CGPoint)position
-                       withSize:(CGSize)size
-                      withColor:(UIColor *)color {
+                             withSize:(CGSize)size
+                            withColor:(UIColor *)color {
     [self setupSubview:self.verifyButton
           withPosition:position
               withSize:size
@@ -202,11 +203,14 @@
           withPosition:position
               withSize:size
              withColor:color];
+    [self.confirm addTarget:self
+                     action:@selector(confirmOrder:)
+           forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)setupCancelWithPosition:(CGPoint)position
-                        withSize:(CGSize)size
-                       withColor:(UIColor *)color {
+                       withSize:(CGSize)size
+                      withColor:(UIColor *)color {
     [self setupSubview:self.cancel
           withPosition:position
               withSize:size
@@ -230,10 +234,12 @@
 
 - (IBAction)confirmOrder:(id)sender {
     ItemEntry *itemToOrder = [[ItemEntry alloc] initWithName:self.itemName.text
-                                               withLocation:self.location.text
-                                            withDescription:self.itemDescription.text
-                                                 withVerify:self.verifyToggle];
+                                                withLocation:self.location.text
+                                             withDescription:self.itemDescription.text
+                                                  withVerify:self.verifyToggle];
     // Present ItemPlacedViewController
+    ItemPlacedViewController *ipvc = [[ItemPlacedViewController alloc] initWithItem:itemToOrder];
+    [self presentViewController:ipvc animated:NO completion:nil];
 }
 
 - (IBAction)cancelOrder:(id)sender {

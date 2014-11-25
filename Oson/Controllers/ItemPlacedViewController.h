@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemEntry.h"
 
 @interface ItemPlacedViewController : UIViewController
+
+@property (nonatomic, strong) ItemEntry *itemOrdered;
+
+- (instancetype)initWithItem:(ItemEntry *)item;
 
 @end

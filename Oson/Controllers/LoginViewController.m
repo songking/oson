@@ -136,6 +136,9 @@
           withPosition:position
               withSize:size
              withColor:color];
+    [self.confirm addTarget:self
+                     action:@selector(confirmLogin:)
+           forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)setupCancelWithPosition:(CGPoint)position
@@ -152,8 +155,10 @@
 
 #pragma mark - Button Handling
 
-- (IBAction)confirmOrder:(id)sender {
-    // Present AddItemViewController
+- (IBAction)confirmLogin:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(userDidLogin)]) {
+        [self.delegate userDidLogin];
+    }
 }
 
 - (IBAction)cancelLogin:(id)sender {

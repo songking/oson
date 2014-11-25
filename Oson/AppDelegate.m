@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AddItemViewController.h"
+#import "ItemViewController.h"
 #import "LoginViewController.h"
 
 @interface AppDelegate ()
@@ -21,8 +21,9 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    AddItemViewController *aivc = [[AddItemViewController alloc] init];
+//    AddItemViewController *aivc = [[AddItemViewController alloc] init];
     LoginViewController *lvc = [[LoginViewController alloc] init];
+    lvc.delegate = self;
     
     self.window.rootViewController = lvc;
     
@@ -52,6 +53,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)userDidLogin {
+    ItemViewController *ivc = [[ItemViewController alloc] init];
+    self.window.rootViewController = ivc;
 }
 
 @end

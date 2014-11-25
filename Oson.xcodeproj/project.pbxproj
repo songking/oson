@@ -13,9 +13,9 @@
 		D1FBD5F11A1F5BF20017D748 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD5EF1A1F5BF20017D748 /* LaunchScreen.xib */; };
 		D1FBD5FD1A1F5BF20017D748 /* OsonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD5FC1A1F5BF20017D748 /* OsonTests.m */; };
 		D1FBD60C1A1F6A480017D748 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD60B1A1F6A480017D748 /* LoginViewController.m */; };
-		D1FBD60F1A1F6AC70017D748 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD60E1A1F6AC70017D748 /* AddItemViewController.m */; };
 		D1FBD6121A1F6B280017D748 /* ItemPlacedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6111A1F6B280017D748 /* ItemPlacedViewController.m */; };
 		D1FBD6201A1F71480017D748 /* ItemEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD61F1A1F71480017D748 /* ItemEntry.m */; };
+		D1FBD6231A243AA30017D748 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6221A243AA30017D748 /* ItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +41,12 @@
 		D1FBD5FC1A1F5BF20017D748 /* OsonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OsonTests.m; sourceTree = "<group>"; };
 		D1FBD60A1A1F6A480017D748 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
 		D1FBD60B1A1F6A480017D748 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
-		D1FBD60D1A1F6AC70017D748 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = Controllers/AddItemViewController.h; sourceTree = "<group>"; };
-		D1FBD60E1A1F6AC70017D748 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = Controllers/AddItemViewController.m; sourceTree = "<group>"; };
 		D1FBD6101A1F6B280017D748 /* ItemPlacedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemPlacedViewController.h; path = Controllers/ItemPlacedViewController.h; sourceTree = "<group>"; };
 		D1FBD6111A1F6B280017D748 /* ItemPlacedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemPlacedViewController.m; path = Controllers/ItemPlacedViewController.m; sourceTree = "<group>"; };
 		D1FBD61E1A1F71480017D748 /* ItemEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemEntry.h; path = Models/ItemEntry.h; sourceTree = "<group>"; };
 		D1FBD61F1A1F71480017D748 /* ItemEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemEntry.m; path = Models/ItemEntry.m; sourceTree = "<group>"; };
+		D1FBD6211A243AA30017D748 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemViewController.h; path = Controllers/ItemViewController.h; sourceTree = "<group>"; };
+		D1FBD6221A243AA30017D748 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemViewController.m; path = Controllers/ItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +130,8 @@
 			children = (
 				D1FBD60A1A1F6A480017D748 /* LoginViewController.h */,
 				D1FBD60B1A1F6A480017D748 /* LoginViewController.m */,
-				D1FBD60D1A1F6AC70017D748 /* AddItemViewController.h */,
-				D1FBD60E1A1F6AC70017D748 /* AddItemViewController.m */,
+				D1FBD6211A243AA30017D748 /* ItemViewController.h */,
+				D1FBD6221A243AA30017D748 /* ItemViewController.m */,
 				D1FBD6101A1F6B280017D748 /* ItemPlacedViewController.h */,
 				D1FBD6111A1F6B280017D748 /* ItemPlacedViewController.m */,
 			);
@@ -249,7 +249,7 @@
 				D1FBD6201A1F71480017D748 /* ItemEntry.m in Sources */,
 				D1FBD60C1A1F6A480017D748 /* LoginViewController.m in Sources */,
 				D1FBD6121A1F6B280017D748 /* ItemPlacedViewController.m in Sources */,
-				D1FBD60F1A1F6AC70017D748 /* AddItemViewController.m in Sources */,
+				D1FBD6231A243AA30017D748 /* ItemViewController.m in Sources */,
 				D1FBD5E61A1F5BF20017D748 /* AppDelegate.m in Sources */,
 				D1FBD5E31A1F5BF20017D748 /* main.m in Sources */,
 			);
