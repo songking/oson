@@ -19,8 +19,7 @@
 @property (nonatomic, strong) UILabel *itemDescriptionTitle;
 @property (nonatomic, strong) UILabel *verify;
 @property (nonatomic, strong) UIButton *verifyButton;
-@property (nonatomic, strong) UIButton *confirm;
-@property (nonatomic, strong) UIButton *cancel;
+@property (nonatomic, strong) UIButton *order;
 @property BOOL verifyToggle;
 
 @end
@@ -39,8 +38,7 @@
         _itemDescriptionTitle = [[UILabel alloc] init];
         _verify = [[UILabel alloc] init];
         _verifyButton = [[UIButton alloc] init];
-        _confirm = [[UIButton alloc] init];
-        _cancel = [[UIButton alloc] init];
+        _order = [[UIButton alloc] init];
         _verifyToggle = YES;
     }
     return self;
@@ -61,65 +59,76 @@
 - (void)setupAllSubviews {
     CGFloat windowWidth = self.view.frame.size.width;
     CGFloat windowHeight = self.view.frame.size.height;
-    CGFloat buttonSize = 50;
     CGFloat paddingFromTop = 20;
-    CGFloat heightOfItemName = 34;
-    CGFloat leftMargin = 20;
-    CGFloat rightMargin = 20;
+    CGFloat heightOfItemName = 75;
+    CGFloat leftMargin = 30;
+    CGFloat rightMargin = 30;
     CGFloat bottomMargin = 20;
+    CGFloat dividerLeftMargin = 20;
     
     [self setupItemNamewithPosition:CGPointMake(0, paddingFromTop)
                            withSize:CGSizeMake(windowWidth, heightOfItemName)
                           withColor:[UIColor clearColor]];
     
-    CGFloat textfieldUpperPadding = 10;
-    paddingFromTop += heightOfItemName + textfieldUpperPadding;
-    CGFloat heightOfLocation = 20;
+    paddingFromTop += heightOfItemName;
+    [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
+    
+
+    CGFloat heightOfLocation = 50;
     
     [self setupLocationwithPosition:CGPointMake(leftMargin, paddingFromTop)
                            withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
                                                heightOfLocation)
                           withColor:[UIColor clearColor]];
     
+    CGFloat textfieldUpperPadding = 0;
     paddingFromTop += heightOfLocation + textfieldUpperPadding;
-    CGFloat heightOfVerify = 20;
-    CGFloat verifyButtonSize = heightOfVerify;
+    CGFloat heightOfVerify = 50;
+    CGFloat verifyButtonSize = 20;
     
+    [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
     [self setupVerifyWithPosition:CGPointMake(leftMargin, paddingFromTop)
                          withSize:CGSizeMake(windowWidth / 2,
                                              heightOfVerify)
                         withColor:[UIColor clearColor]];
     
     [self setupVerifyButtonWithPosition:CGPointMake(windowWidth - verifyButtonSize - rightMargin,
-                                                    paddingFromTop)
+                                                    paddingFromTop + 15)
                                withSize:CGSizeMake(verifyButtonSize, verifyButtonSize)
                               withColor:[UIColor greenColor]];
     
     paddingFromTop += heightOfVerify + textfieldUpperPadding;
-    CGFloat heightOfItemDescriptionTitle = 20;
+    CGFloat heightOfItemDescriptionTitle = 50;
     
+    [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
     [self setupItemDescriptionTitleWithPosition:CGPointMake(leftMargin, paddingFromTop)
                                        withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
                                                            heightOfItemDescriptionTitle)
                                       withColor:[UIColor clearColor]];
     
+    CGFloat buttonHeight = 30;
+    CGFloat buttonWidth = windowWidth - leftMargin - rightMargin;
     paddingFromTop += heightOfItemDescriptionTitle;
-    CGFloat heightOfItemDescription = windowHeight / 3;
+    CGFloat paddingFromConfirmButton = 40;
+    CGFloat heightOfItemDescription = windowHeight -
+                                        bottomMargin -
+                                        buttonHeight -
+                                        paddingFromConfirmButton -
+                                        paddingFromTop;
     
     [self setupItemDescriptionwithPosition:CGPointMake(leftMargin, paddingFromTop)
                                   withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
                                                       heightOfItemDescription)
-                                 withColor:[UIColor lightGrayColor]];
+                                 withColor:[UIColor colorWithWhite:0.90 alpha:1]];
     
-    [self setupConfirmWithPosition:CGPointMake(windowWidth - buttonSize - rightMargin,
-                                               windowHeight - buttonSize - bottomMargin)
-                          withSize:CGSizeMake(buttonSize, buttonSize)
-                         withColor:[UIColor greenColor]];
+    CGFloat paddingFromItemDescription = 20;
+    paddingFromTop += heightOfItemDescription + paddingFromItemDescription;
+    [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
     
-    [self setupCancelWithPosition:CGPointMake(leftMargin,
-                                              windowHeight - buttonSize - bottomMargin)
-                         withSize:CGSizeMake(buttonSize, buttonSize)
-                        withColor:[UIColor redColor]];
+    [self setupOrderWithPosition:CGPointMake(leftMargin,
+                                               windowHeight - buttonHeight - bottomMargin)
+                          withSize:CGSizeMake(buttonWidth, buttonHeight)
+                         withColor:[UIColor clearColor]];
 }
 
 - (void)setupSubview:(UIView *)view
@@ -134,53 +143,58 @@
 - (void)setupItemNamewithPosition:(CGPoint)position
                          withSize:(CGSize)size
                         withColor:(UIColor *)color {
+    [self.itemName setPlaceholder:@"Item Name"];
+    [self.itemName setTextAlignment:NSTextAlignmentCenter];
+    self.itemName.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:28];
     [self setupSubview:self.itemName
           withPosition:position
               withSize:size
              withColor:color];
-    [self.itemName setPlaceholder:@"Item Name"];
-    [self.itemName setTextAlignment:NSTextAlignmentCenter];
 }
 
 - (void)setupLocationwithPosition:(CGPoint)position
                          withSize:(CGSize)size
                         withColor:(UIColor *)color {
+    [self.location setPlaceholder:@"Set Location"];
+    self.location.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self setupSubview:self.location
           withPosition:position
               withSize:size
              withColor:color];
-    [self.location setPlaceholder:@"Set Location"];
 }
 
 - (void)setupItemDescriptionTitleWithPosition:(CGPoint)position
                                      withSize:(CGSize)size
                                     withColor:(UIColor *)color {
+    [self.itemDescriptionTitle setText:@"Additional Details"];
+    self.itemDescriptionTitle.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self setupSubview:self.itemDescriptionTitle
           withPosition:position
               withSize:size
              withColor:color];
-    [self.itemDescriptionTitle setText:@"Additional Details"];
 }
 
 - (void)setupItemDescriptionwithPosition:(CGPoint)position
                                 withSize:(CGSize)size
                                withColor:(UIColor *)color {
+    self.itemDescription.clipsToBounds = YES;
+    self.itemDescription.layer.cornerRadius = 10.0f;
+    self.itemDescription.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self setupSubview:self.itemDescription
           withPosition:position
               withSize:size
              withColor:color];
-    self.itemDescription.clipsToBounds = YES;
-    self.itemDescription.layer.cornerRadius = 10.0f;
 }
 
 - (void)setupVerifyWithPosition:(CGPoint)position
                        withSize:(CGSize)size
                       withColor:(UIColor *)color {
+    [self.verify setText:@"Verify"];
+    self.verify.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self setupSubview:self.verify
           withPosition:position
               withSize:size
              withColor:color];
-    [self.verify setText:@"Verify"];
 }
 
 - (void)setupVerifyButtonWithPosition:(CGPoint)position
@@ -196,28 +210,30 @@
 }
 
 
-- (void)setupConfirmWithPosition:(CGPoint)position
+- (void)setupOrderWithPosition:(CGPoint)position
                         withSize:(CGSize)size
                        withColor:(UIColor *)color {
-    [self setupSubview:self.confirm
+    [self.order setTitle:@"Place Order" forState:UIControlStateNormal];
+    [self.order setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.order.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:22];
+    [self setupSubview:self.order
           withPosition:position
               withSize:size
              withColor:color];
-    [self.confirm addTarget:self
+    [self.order addTarget:self
                      action:@selector(confirmOrder:)
            forControlEvents:UIControlEventTouchDown];
 }
 
-- (void)setupCancelWithPosition:(CGPoint)position
-                       withSize:(CGSize)size
-                      withColor:(UIColor *)color {
-    [self setupSubview:self.cancel
-          withPosition:position
-              withSize:size
-             withColor:color];
-    [self.cancel addTarget:self
-                    action:@selector(cancelOrder:)
-          forControlEvents:UIControlEventTouchDown];
+- (void)addDivider:(CGPoint)position {
+    UIImageView *dividerHolder = [[UIImageView alloc] initWithFrame:CGRectMake(position.x,
+                                                                               position.y,
+                                                                               self.view.frame.size.width,
+                                                                               2)];
+    UIImage *divider = [UIImage imageNamed:@"Divider.png"];
+    dividerHolder.image = divider;
+    [dividerHolder sizeToFit];
+    [self.view addSubview:dividerHolder];
 }
 
 #pragma mark - Button Handling
@@ -240,14 +256,6 @@
     // Present ItemPlacedViewController
     ItemPlacedViewController *ipvc = [[ItemPlacedViewController alloc] initWithItem:itemToOrder];
     [self presentViewController:ipvc animated:NO completion:nil];
-}
-
-- (IBAction)cancelOrder:(id)sender {
-    [self.itemName setText:@""];
-    [self.itemDescription setText:@""];
-    [self.location setText:@""];
-    self.verifyToggle = YES;
-    [self.verifyButton setBackgroundColor:[UIColor greenColor]];
 }
 
 @end
