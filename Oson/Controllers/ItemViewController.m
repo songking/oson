@@ -17,8 +17,8 @@
 @property (nonatomic, strong) UITextField *location;
 @property (nonatomic, strong) UITextView *itemDescription;
 @property (nonatomic, strong) UILabel *itemDescriptionTitle;
-@property (nonatomic, strong) UILabel *verify;
 @property (nonatomic, strong) UIButton *verifyButton;
+@property (nonatomic, strong) UIButton *verifyView;
 @property (nonatomic, strong) UIButton *order;
 @property BOOL verifyToggle;
 
@@ -36,8 +36,8 @@
         _location = [[UITextField alloc] init];
         _itemDescription = [[UITextView alloc] init];
         _itemDescriptionTitle = [[UILabel alloc] init];
-        _verify = [[UILabel alloc] init];
         _verifyButton = [[UIButton alloc] init];
+        _verifyView = [[UIButton alloc] init];
         _order = [[UIButton alloc] init];
         _verifyToggle = YES;
     }
@@ -87,15 +87,15 @@
     CGFloat verifyButtonSize = 20;
     
     [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
-    [self setupVerifyWithPosition:CGPointMake(leftMargin, paddingFromTop)
-                         withSize:CGSizeMake(windowWidth / 2,
-                                             heightOfVerify)
-                        withColor:[UIColor clearColor]];
+    [self setupVerifyButtonWithPosition:CGPointMake(leftMargin, paddingFromTop)
+                               withSize:CGSizeMake(windowWidth - leftMargin - rightMargin,
+                                                   heightOfVerify)
+                              withColor:[UIColor clearColor]];
     
-    [self setupVerifyButtonWithPosition:CGPointMake(windowWidth - verifyButtonSize - rightMargin,
+    [self setupVerifyViewWithPosition:CGPointMake(windowWidth - verifyButtonSize - rightMargin,
                                                     paddingFromTop + 15)
-                               withSize:CGSizeMake(verifyButtonSize, verifyButtonSize)
-                              withColor:[UIColor greenColor]];
+                             withSize:CGSizeMake(verifyButtonSize, verifyButtonSize)
+                            withColor:[UIColor greenColor]];
     
     paddingFromTop += heightOfVerify + textfieldUpperPadding;
     CGFloat heightOfItemDescriptionTitle = 50;
@@ -109,7 +109,7 @@
     CGFloat buttonHeight = 30;
     CGFloat buttonWidth = windowWidth - leftMargin - rightMargin;
     paddingFromTop += heightOfItemDescriptionTitle;
-    CGFloat paddingFromConfirmButton = 40;
+    CGFloat paddingFromConfirmButton = 30;
     CGFloat heightOfItemDescription = windowHeight -
                                         bottomMargin -
                                         buttonHeight -
@@ -186,25 +186,31 @@
              withColor:color];
 }
 
-- (void)setupVerifyWithPosition:(CGPoint)position
+- (void)setupVerifyButtonWithPosition:(CGPoint)position
                        withSize:(CGSize)size
                       withColor:(UIColor *)color {
-    [self.verify setText:@"Verify"];
-    self.verify.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
-    [self setupSubview:self.verify
-          withPosition:position
-              withSize:size
-             withColor:color];
-}
-
-- (void)setupVerifyButtonWithPosition:(CGPoint)position
-                             withSize:(CGSize)size
-                            withColor:(UIColor *)color {
+    [self.verifyButton setTitle:@"Verify" forState:UIControlStateNormal];
+    self.verifyButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    [self.verifyButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.verifyButton.titleLabel.textAlignment = NSTextAlignmentLeft;
+    self.verifyButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self setupSubview:self.verifyButton
           withPosition:position
               withSize:size
              withColor:color];
     [self.verifyButton addTarget:self
+                          action:@selector(toggleVerify:)
+                forControlEvents:UIControlEventTouchDown];
+}
+
+- (void)setupVerifyViewWithPosition:(CGPoint)position
+                             withSize:(CGSize)size
+                            withColor:(UIColor *)color {
+    [self setupSubview:self.verifyView
+          withPosition:position
+              withSize:size
+             withColor:color];
+    [self.verifyView addTarget:self
                           action:@selector(toggleVerify:)
                 forControlEvents:UIControlEventTouchDown];
 }
@@ -241,21 +247,36 @@
 - (IBAction)toggleVerify:(id)sender {
     if (self.verifyToggle) {
         self.verifyToggle = NO;
-        [self.verifyButton setBackgroundColor:[UIColor redColor]];
+        [self.verifyView setBackgroundColor:[UIColor redColor]];
     } else {
         self.verifyToggle = YES;
-        [self.verifyButton setBackgroundColor:[UIColor greenColor]];
+        [self.verifyView setBackgroundColor:[UIColor greenColor]];
     }
 }
 
 - (IBAction)confirmOrder:(id)sender {
-    ItemEntry *itemToOrder = [[ItemEntry alloc] initWithName:self.itemName.text
-                                                withLocation:self.location.text
-                                             withDescription:self.itemDescription.text
-                                                  withVerify:self.verifyToggle];
-    // Present ItemPlacedViewController
-    ItemPlacedViewController *ipvc = [[ItemPlacedViewController alloc] initWithItem:itemToOrder];
-    [self presentViewController:ipvc animated:NO completion:nil];
+    if ([self.itemName.text isEqualToString:@""] || [self.location.text isEqualToString:@""]) {
+        UIAlertView *incompleteAlert = [[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                                                  message:@"You have left the item \nname or location empty."
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"Got it!"
+                                                        otherButtonTitles:nil, nil];
+        [incompleteAlert show];
+    } else {
+        ItemEntry *itemToOrder = [[ItemEntry alloc] initWithName:self.itemName.text
+                                                    withLocation:self.location.text
+                                                 withDescription:self.itemDescription.text
+                                                      withVerify:self.verifyToggle];
+    
+        // Present ItemPlacedViewController
+        ItemPlacedViewController *ipvc = [[ItemPlacedViewController alloc] initWithItem:itemToOrder];
+        [self presentViewController:ipvc animated:NO completion:nil];
+        self.itemName.text = @"";
+        self.location.text = @"";
+        self.itemDescription.text = @"";
+        self.verifyToggle = YES;
+        [self.verifyView setBackgroundColor:[UIColor greenColor]];
+    }
 }
 
 @end
