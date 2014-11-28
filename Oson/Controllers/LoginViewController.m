@@ -7,14 +7,14 @@
 //
 
 #import "LoginViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
 
 @property (nonatomic, strong) UILabel *appName;
 @property (nonatomic, strong) UITextField *username;
 @property (nonatomic, strong) UITextField *password;
-@property (nonatomic, strong) UIButton *confirm;
-@property (nonatomic, strong) UIButton *cancel;
+@property (nonatomic, strong) UIButton *login;
 
 @end
 
@@ -26,8 +26,7 @@
         _appName = [[UILabel alloc] init];
         _username = [[UITextField alloc] init];
         _password = [[UITextField alloc] init];
-        _cancel = [[UIButton alloc] init];
-        _confirm = [[UIButton alloc] init];
+        _login = [[UIButton alloc] init];
     }
     return self;
 }
@@ -48,12 +47,11 @@
 - (void)setupAllSubviews {
     CGFloat windowWidth = self.view.frame.size.width;
     CGFloat windowHeight = self.view.frame.size.height;
-    CGFloat buttonSize = 50;
-    CGFloat paddingFromTop = windowHeight / 3;
-    CGFloat heightOfAppName = 34;
-    CGFloat leftMargin = 20;
-    CGFloat rightMargin = 20;
-    CGFloat bottomMargin = 20;
+    CGFloat paddingFromTop = windowHeight / 4;
+    CGFloat heightOfAppName = 50;
+    CGFloat leftMargin = 50;
+    CGFloat rightMargin = 50;
+    CGFloat dividerLeftMargin = 20;
     
     [self setupAppNameWithPosition:CGPointMake(0, paddingFromTop)
                           withSize:CGSizeMake(windowWidth, heightOfAppName)
@@ -61,31 +59,31 @@
     
     CGFloat paddingFromAppName = 20;
     paddingFromTop += heightOfAppName + paddingFromAppName;
-    CGFloat textFieldHeight = 20;
-    CGFloat textFieldWidth = windowWidth / 2;
+    CGFloat textFieldHeight = 50;
+    CGFloat textFieldWidth = windowWidth - leftMargin - rightMargin;
     
-    [self setupUsernameWithPosition:CGPointMake((windowWidth / 2) - (textFieldWidth / 2),
-                                                paddingFromTop)
+    [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
+    [self setupUsernameWithPosition:CGPointMake(leftMargin, paddingFromTop)
                            withSize:CGSizeMake(textFieldWidth, textFieldHeight)
                           withColor:[UIColor clearColor]];
     
-    CGFloat paddingFromUsername = 5;
-    paddingFromTop += textFieldHeight + paddingFromUsername;
+    paddingFromTop += textFieldHeight;
     
-    [self setupPasswordWithPosition:CGPointMake((windowWidth / 2) - (textFieldWidth / 2),
-                                                paddingFromTop)
+    [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
+    [self setupPasswordWithPosition:CGPointMake(leftMargin, paddingFromTop)
                            withSize:CGSizeMake(textFieldWidth, textFieldHeight)
                           withColor:[UIColor clearColor]];
     
-    [self setupConfirmWithPosition:CGPointMake(windowWidth - buttonSize - rightMargin,
-                                               windowHeight - buttonSize - bottomMargin)
-                          withSize:CGSizeMake(buttonSize, buttonSize)
-                         withColor:[UIColor greenColor]];
+    paddingFromTop += textFieldHeight;
+    [self addDivider:CGPointMake(dividerLeftMargin, paddingFromTop)];
+    CGFloat paddingFromBottomDivider = 15;
+    paddingFromTop += paddingFromBottomDivider;
+    CGFloat buttonHeight = 30;
+    CGFloat buttonWidth = windowWidth - leftMargin - rightMargin;
     
-    [self setupCancelWithPosition:CGPointMake(leftMargin,
-                                              windowHeight - buttonSize - bottomMargin)
-                         withSize:CGSizeMake(buttonSize, buttonSize)
-                        withColor:[UIColor redColor]];
+    [self setupLoginWithPosition:CGPointMake(leftMargin, paddingFromTop)
+                          withSize:CGSizeMake(buttonWidth, buttonHeight)
+                         withColor:[UIColor clearColor]];
 }
 
 - (void)setupSubview:(UIView *)view
@@ -100,57 +98,62 @@
 - (void)setupAppNameWithPosition:(CGPoint)position
                         withSize:(CGSize)size
                        withColor:(UIColor *)color {
+    self.appName.text = @"Oson";
+    self.appName.textAlignment = NSTextAlignmentCenter;
+    self.appName.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:54];
     [self setupSubview:self.appName
           withPosition:position
               withSize:size
              withColor:color];
-    self.appName.text = @"Oson";
-    self.appName.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)setupUsernameWithPosition:(CGPoint)position
                          withSize:(CGSize)size
                         withColor:(UIColor *)color {
+    self.username.placeholder = @"Username";
+    self.username.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self setupSubview:self.username
           withPosition:position
               withSize:size
              withColor:color];
-    self.username.placeholder = @"Username";
 }
 
 - (void)setupPasswordWithPosition:(CGPoint)position
                          withSize:(CGSize)size
                         withColor:(UIColor *)color {
+    self.password.placeholder = @"Password";
+    self.password.secureTextEntry = YES;
+    self.password.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self setupSubview:self.password
           withPosition:position
               withSize:size
              withColor:color];
-    self.password.placeholder = @"Password";
-    self.password.secureTextEntry = YES;
 }
 
-- (void)setupConfirmWithPosition:(CGPoint)position
+- (void)setupLoginWithPosition:(CGPoint)position
                         withSize:(CGSize)size
                        withColor:(UIColor *)color {
-    [self setupSubview:self.confirm
+    [self.login setTitle:@"Log In" forState:UIControlStateNormal];
+    [self.login setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.login.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:25];
+    [self setupSubview:self.login
           withPosition:position
               withSize:size
              withColor:color];
-    [self.confirm addTarget:self
+    [self.login addTarget:self
                      action:@selector(confirmLogin:)
            forControlEvents:UIControlEventTouchDown];
 }
 
-- (void)setupCancelWithPosition:(CGPoint)position
-                       withSize:(CGSize)size
-                      withColor:(UIColor *)color {
-    [self setupSubview:self.cancel
-          withPosition:position
-              withSize:size
-             withColor:color];
-    [self.cancel addTarget:self
-                    action:@selector(cancelLogin:)
-          forControlEvents:UIControlEventTouchDown];
+- (void)addDivider:(CGPoint)position {
+    UIImageView *dividerHolder = [[UIImageView alloc] initWithFrame:CGRectMake(position.x,
+                                                                         position.y,
+                                                                         self.view.frame.size.width,
+                                                                         2)];
+    UIImage *divider = [UIImage imageNamed:@"Divider.png"];
+    dividerHolder.image = divider;
+    [dividerHolder sizeToFit];
+    [self.view addSubview:dividerHolder];
 }
 
 #pragma mark - Button Handling
@@ -159,11 +162,6 @@
     if ([self.delegate respondsToSelector:@selector(userDidLogin)]) {
         [self.delegate userDidLogin];
     }
-}
-
-- (IBAction)cancelLogin:(id)sender {
-    [self.username setText:@""];
-    [self.password setText:@""];
 }
 
 @end
