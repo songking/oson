@@ -224,7 +224,33 @@
 #pragma mark - Button Handling
 
 - (IBAction)cancelOrder:(id)sender {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self alertOKCancelAction];
+}
+
+- (void)alertOKCancelAction {
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancel Order"
+                                                    message:@"Are you sure you want to cancel?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+    alert.tag = 1;
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alert.tag == 1)
+    {
+        if(buttonIndex == alert.cancelButtonIndex)
+        {
+            
+        }
+        else
+        {
+            [self dismissViewControllerAnimated:NO completion:nil];
+        }
+    }
 }
 
 @end

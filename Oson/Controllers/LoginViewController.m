@@ -159,7 +159,15 @@
 #pragma mark - Button Handling
 
 - (IBAction)confirmLogin:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(userDidLogin)]) {
+    
+    if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
+        UIAlertView *incompleteAlert = [[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                                                  message:@"Your username or \npassword is incorrect."
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"Got it!"
+                                                        otherButtonTitles:nil, nil];
+        [incompleteAlert show];
+    } else if ([self.delegate respondsToSelector:@selector(userDidLogin)]) {
         [self.delegate userDidLogin];
     }
 }

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ItemEntry.h"
 
-@interface ItemPlacedViewController : UIViewController
+@interface ItemPlacedViewController : UIViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) ItemEntry *itemOrdered;
 
