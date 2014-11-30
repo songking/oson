@@ -161,7 +161,7 @@
 - (IBAction)confirmLogin:(id)sender {
     
     if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
-        UIAlertView *incompleteAlert = [[UIAlertView alloc] initWithTitle:@"Missing Information"
+        UIAlertView *incompleteAlert = [[UIAlertView alloc] initWithTitle:@"Incorrect Information"
                                                                   message:@"Your username or \npassword is incorrect."
                                                                  delegate:nil
                                                         cancelButtonTitle:@"Got it!"

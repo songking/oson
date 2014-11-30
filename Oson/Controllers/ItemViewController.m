@@ -7,7 +7,6 @@
 //
 
 #import "ItemViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #import "ItemEntry.h"
 #import "ItemPlacedViewController.h"
 
@@ -177,8 +176,6 @@
 - (void)setupItemDescriptionwithPosition:(CGPoint)position
                                 withSize:(CGSize)size
                                withColor:(UIColor *)color {
-    self.itemDescription.clipsToBounds = YES;
-    self.itemDescription.layer.cornerRadius = 10.0f;
     self.itemDescription.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     [self setupSubview:self.itemDescription
           withPosition:position
