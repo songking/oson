@@ -17,6 +17,8 @@
 		D1FBD6201A1F71480017D748 /* ItemEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD61F1A1F71480017D748 /* ItemEntry.m */; };
 		D1FBD6231A243AA30017D748 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD6221A243AA30017D748 /* ItemViewController.m */; };
 		D1FBD6271A2872170017D748 /* Divider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD6261A2872170017D748 /* Divider@2x.png */; };
+		D1FBD62B1A2B2A010017D748 /* RatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FBD62A1A2B2A010017D748 /* RatingView.m */; };
+		D1FBD62E1A2B2E270017D748 /* courierPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FBD62D1A2B2E270017D748 /* courierPhoto.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		D1FBD6211A243AA30017D748 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemViewController.h; path = Controllers/ItemViewController.h; sourceTree = "<group>"; };
 		D1FBD6221A243AA30017D748 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemViewController.m; path = Controllers/ItemViewController.m; sourceTree = "<group>"; };
 		D1FBD6261A2872170017D748 /* Divider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Divider@2x.png"; sourceTree = "<group>"; };
+		D1FBD6291A2B2A010017D748 /* RatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingView.h; path = Views/RatingView.h; sourceTree = "<group>"; };
+		D1FBD62A1A2B2A010017D748 /* RatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingView.m; path = Views/RatingView.m; sourceTree = "<group>"; };
+		D1FBD62D1A2B2E270017D748 /* courierPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = courierPhoto.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +95,7 @@
 		D1FBD5DF1A1F5BF20017D748 /* Oson */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBD6281A2B29ED0017D748 /* Views */,
 				D1FBD5E41A1F5BF20017D748 /* AppDelegate.h */,
 				D1FBD5E51A1F5BF20017D748 /* AppDelegate.m */,
 				D1FBD6071A1F5DD30017D748 /* Controllers */,
@@ -153,6 +159,7 @@
 		D1FBD6241A2871E50017D748 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBD62C1A2B2E180017D748 /* ItemPlacedView */,
 				D1FBD6251A2871F40017D748 /* LoginView */,
 			);
 			name = Resources;
@@ -164,6 +171,23 @@
 				D1FBD6261A2872170017D748 /* Divider@2x.png */,
 			);
 			name = LoginView;
+			sourceTree = "<group>";
+		};
+		D1FBD6281A2B29ED0017D748 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBD6291A2B2A010017D748 /* RatingView.h */,
+				D1FBD62A1A2B2A010017D748 /* RatingView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D1FBD62C1A2B2E180017D748 /* ItemPlacedView */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBD62D1A2B2E270017D748 /* courierPhoto.png */,
+			);
+			name = ItemPlacedView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +272,7 @@
 			files = (
 				D1FBD5F11A1F5BF20017D748 /* LaunchScreen.xib in Resources */,
 				D1FBD6271A2872170017D748 /* Divider@2x.png in Resources */,
+				D1FBD62E1A2B2E270017D748 /* courierPhoto.png in Resources */,
 				D1FBD5EE1A1F5BF20017D748 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +294,7 @@
 				D1FBD6201A1F71480017D748 /* ItemEntry.m in Sources */,
 				D1FBD60C1A1F6A480017D748 /* LoginViewController.m in Sources */,
 				D1FBD6121A1F6B280017D748 /* ItemPlacedViewController.m in Sources */,
+				D1FBD62B1A2B2A010017D748 /* RatingView.m in Sources */,
 				D1FBD6231A243AA30017D748 /* ItemViewController.m in Sources */,
 				D1FBD5E61A1F5BF20017D748 /* AppDelegate.m in Sources */,
 				D1FBD5E31A1F5BF20017D748 /* main.m in Sources */,
@@ -454,6 +480,7 @@
 				D1FBD6021A1F5BF20017D748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1FBD6031A1F5BF20017D748 /* Build configuration list for PBXNativeTarget "OsonTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +489,7 @@
 				D1FBD6051A1F5BF20017D748 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
